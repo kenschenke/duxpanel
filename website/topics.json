@@ -11,6 +11,16 @@
       "description": "How to start using DuxPanel"
     },
     {
+      "title": "DuxPanel Basics",
+      "topic": "basics",
+      "description": "A simple DuxPanel demo"
+    },
+    {
+      "title": "Responsive Panels",
+      "topic": "responsive",
+      "description": "Using DuxPanel in a responsive web site"
+    },
+    {
       "title": "Panel Animation",
       "topic": "animation",
       "description": "Animating DuxPanel and DuxDialog"

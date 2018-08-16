@@ -1,0 +1,87 @@
+<h2>Responsive Panels</h2>
+
+<p>
+    <code>&lt;DuxPanel&gt;</code> is designed to be responsive from Desktop browsers down to mobile devices. This is
+    accomplished using a set of sizing breakpoints similar to Twitter's
+    <a href="http://www.getbootstrap.com">Bootstrap</a> CSS framework.
+</p>
+
+<h4>Sizing Breakpoints</h4>
+
+<p>
+    There are five sizing breakpoints, defined to be exactly the same as Bootstrap.  This simplifies web page design
+    if your site is already using Bootstrap.  These breakpoints are:
+</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Breakpoint</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>xs</td>
+        <td>Extra small devices (portrait phones, less than 576px)</td>
+    </tr>
+    <tr>
+        <td>sm</td>
+        <td>Small devices (landscape phones, 576px and up)</td>
+    </tr>
+    <tr>
+        <td>md</td>
+        <td>Medium devices (tablets, 768px and up)</td>
+    </tr>
+    <tr>
+        <td>lg</td>
+        <td>Large devices (desktops, 992px and up)</td>
+    </tr>
+    <tr>
+        <td>xl</td>
+        <td>Extra large devices (large desktops, 1200px and up)</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Dimensions and Placement</h4>
+
+<p>
+    Panels are sized and located on the web page using one of three possible values: a number (actual pixels),
+    a percent, or an object detailing sizes at specific breakpoints.  If an object is supplied, the size at each
+    breakpoint can be a number (actual pixels) or a percent.  These values are recognized in the
+    <code>&lt;DuxPanel&gt;</code> properties of <code>left</code>, <code>top</code>, <code>width</code>,
+    and <code>height</code>.  Here are some examples of this:
+</p>
+
+<pre>
+    &lt;DuxPanel width="50%" height={150} top={50}&gt;...&lt;/DuxPanel&gt;
+</pre>
+
+<p>
+    Sizes and placement in breakpoints look like this:
+</p>
+
+<pre>
+    const width = {
+        xs: "100%",
+        sm: "90%",
+        md: 400   // Numbers or percents can be used for each breakpoint
+    };
+
+    &lt;DuxPanel width={width} ...
+</pre>
+
+<p>
+    Notice the width object is missing <code>lg</code> and <code>xl</code>.  If a size breakpoint is missing from
+    the object, the breakpoint for the next smallest screen is used.  In this case, browsers with large or extra-large
+    windows would fall back to the medium breakpoint.  If the browser window is the <code>xs</code> size and that
+    breakpoint is missing from the object, the next lowest breakpoint is used instead.
+</p>
+
+<h4>Examples</h4>
+
+<p>
+    These two examples demonstrate a proportionally sized panel and one that changes its sizes using the responsive
+    breakpoints.
+</p>

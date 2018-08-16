@@ -44,7 +44,7 @@ class TopicUi extends React.Component {
                     </div>
                 </div>
                 }
-                <div className="row" style={{borderTop:'1px solid #ccc',textAlign:'center',height:'3em'}}>
+                <div className="row mt-3" style={{borderTop:'1px solid #ccc',textAlign:'center',height:'3em'}}>
                     <div className="col">
                         <small className="text-muted">Copyright 2018 by Ken Schenke</small>
                     </div>
