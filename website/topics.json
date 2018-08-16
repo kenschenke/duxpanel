@@ -1,0 +1,19 @@
+{
+  "topics": [
+    {
+      "title": "Introduction",
+      "topic": "intro",
+      "description": "Welcome to DuxPanel"
+    },
+    {
+      "title": "Getting Started",
+      "topic": "gettingstarted",
+      "description": "How to start using DuxPanel"
+    },
+    {
+      "title": "Panel Animation",
+      "topic": "animation",
+      "description": "Animating DuxPanel and DuxDialog"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+<h2>Panel Animation</h2>
+
+<p>
+    <code>&lt;DuxPanel&gt;</code> supports CSS animation.  All modern evergreen browsers (such as Firefox and Chrome)
+    support CSS animation as well as Internet Explorer 10 or later.  Simple entry and exit animations are built-in as well
+    as support for keyframes and the CSS shorthand animation syntax.
+</p>
+
+<h4>Entry and Exit Animations</h4>
+
+<p>
+    <code>&lt;DuxPanel&gt;</code> offers optional entry and exit animations.
+    The following properties control animations when a panel is opening and closing.  <code>slideInFrom</code> and
+    <code>slideOutFrom</code> forces <code>fadeIn</code> and <code>fadeOut</code> to <strong>true</strong>.
+</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>fadeIn</td>
+        <td>false (true in DuxDialog)</td>
+        <td>True if the panel and the backdrop fade in</td>
+    </tr>
+    <tr>
+        <td>fadeOut</td>
+        <td>false (true in DuxDialog)</td>
+        <td>True if the panel and the backdrop fade out</td>
+    </tr>
+    <tr>
+        <td>slideInFrom</td>
+        <td>none ("top" in DuxDialog)</td>
+        <td>"top", "left", "bottom", or "right"</td>
+    </tr>
+    <tr>
+        <td>slideOutTo</td>
+        <td>none ("top" in DuxDialog)</td>
+        <td>"top", "left", "bottom", or "right"</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>CSS Animation</h4>
+
+<p>
+    For more complete control over animation, CSS animations are supported.  The <code>animation</code> property
+    contains an animation shorthand referencing <code>@keyframes</code> specified in the CSS.
+</p>
+
+<div class="alert alert-warning">
+    If your animation modifies the CSS <code>top</code> or <code>left</code> properties, users will not be able to
+    drag the panel as long as the <code>animation</code> property to DuxPanel is non-empty.
+</div>

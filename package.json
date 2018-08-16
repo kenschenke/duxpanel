@@ -1,0 +1,44 @@
+{
+  "name": "duxpanel",
+  "version": "1.0.0",
+  "description": "React JS / Redux Draggable Panels, Dialogs, and Modals",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "testbed": "./node_modules/.bin/webpack-dev-server --env=testbed",
+    "website": "./node_modules/.bin/webpack-dev-server --env=website",
+    "website-dist": "./node_modules/.bin/webpack --env=website-dist",
+    "prepare": "npm run website-dist && babel ./src --out-dir ./lib --source-maps --presets env,stage-0,react --plugins babel-plugin-add-module-exports"
+  },
+  "author": "Ken Schenke",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "@fortawesome/react-fontawesome": "^0.1.2",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^1.0.0",
+    "jest": "^23.5.0",
+    "raw-loader": "^0.5.1",
+    "react-syntax-highlighter": "^8.0.1",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
