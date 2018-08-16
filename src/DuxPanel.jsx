@@ -4,16 +4,6 @@ import { mapPanelProps, mapPanelDispatch } from './maps/DuxPanel.map';
 import { connect } from 'react-redux';
 import { getElementPosition } from './helpers';
 
-/*
-Need functions to determine animation names based on props
-state.animationName is set in constructor only if props.show is true
-state.animationName is set in componentDidUpdate() if this.props.show is changing value
-state.animationName is checked in render() - if non-empty:
-   Set it in the panelProps
-   Start a timer to clear it
-   After it's cleared, render() is called again thereby clearing it in panelProps
- */
-
 class DuxPanelUi extends React.Component {
     constructor(props) {
         super(props);
@@ -243,6 +233,10 @@ class DuxPanelUi extends React.Component {
     windowResized = () => {
         // If left, top, width, or height is specified as anything
         // other than a number then the panel must be re-rendered.
+
+        if (this.props.center) {
+            this.updatePanelPosition();
+        }
 
         if ((this.props.left && typeof this.props.left !== 'number') ||
             (this.props.top && typeof this.props.top !== 'number') ||
