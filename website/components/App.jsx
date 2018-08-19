@@ -40,6 +40,10 @@ import { Dialog } from './Dialog';
 import DialogHtml from '../html/Dialog.html';
 import DialogSource from '../source/Dialog.txt';
 
+import { OkDialog } from './OkDialog';
+import OkDialogHtml from '../html/OkDialog.html';
+import OkDialogSource from '../source/OkDialog.txt';
+
 const topicMap = {
     intro: {
         html: IntroHtml
@@ -69,6 +73,11 @@ const topicMap = {
         component: Dialog,
         html: DialogHtml,
         source: DialogSource
+    },
+    okdialog: {
+        component: OkDialog,
+        html: OkDialogHtml,
+        source: OkDialogSource
     }
 };
 

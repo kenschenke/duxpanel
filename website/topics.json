@@ -34,6 +34,11 @@
       "title": "DuxDialog",
       "topic": "dialog",
       "description": "Dialog boxes"
+    },
+    {
+      "title": "DuxOkDialog",
+      "topic": "okdialog",
+      "description": "Ok dialog boxes"
     }
   ]
 }
