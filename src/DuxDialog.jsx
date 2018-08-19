@@ -4,26 +4,24 @@ import PropTypes from 'prop-types';
 import { DuxPanel } from './DuxPanel';
 import { DialogButtonBar } from './DialogButtonBar';
 
-export class DuxDialog extends React.Component {
-    render() {
-        let footer = null;
-        if (this.props.buttons) {
-            footer = <DialogButtonBar
-                buttons={this.props.buttons}
-                onButton={this.props.onButton}
-                buttonClassName={this.props.buttonClassName}
-            />;
-        }
-        return (
-            <DuxPanel footerComponent={footer} {...this.props}>
-                {this.props.icon &&
-                <div style={{float:'left',marginRight:10}}>{this.props.icon}</div>
-                }
-                {this.props.children}
-            </DuxPanel>
-        );
+export const DuxDialog = props => {
+    let footer = null;
+    if (props.buttons) {
+        footer = <DialogButtonBar
+            buttons={props.buttons}
+            onButton={props.onButton}
+            buttonClassName={props.buttonClassName}
+        />;
     }
-}
+    return (
+        <DuxPanel footerComponent={footer} {...props}>
+            {props.icon &&
+            <div style={{float:'left',marginRight:10}}>{props.icon}</div>
+            }
+            {props.children}
+        </DuxPanel>
+    );
+};
 
 DuxDialog.propTypes = {
     ...DuxPanel.propTypes,
