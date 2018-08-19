@@ -29,6 +29,11 @@
       "title": "DuxPanel Properties",
       "topic": "properties",
       "description": "DuxPanel Property Reference"
+    },
+    {
+      "title": "DuxDialog",
+      "topic": "dialog",
+      "description": "Dialog boxes"
     }
   ]
 }

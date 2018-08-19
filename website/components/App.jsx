@@ -36,6 +36,10 @@ import AnimationSource from '../source/Animation.txt';
 
 import DuxPanelPropertiesHtml from '../html/DuxPanelProperties.html';
 
+import { Dialog } from './Dialog';
+import DialogHtml from '../html/Dialog.html';
+import DialogSource from '../source/Dialog.txt';
+
 const topicMap = {
     intro: {
         html: IntroHtml
@@ -60,6 +64,11 @@ const topicMap = {
     },
     properties: {
         html: DuxPanelPropertiesHtml
+    },
+    dialog: {
+        component: Dialog,
+        html: DialogHtml,
+        source: DialogSource
     }
 };
 
