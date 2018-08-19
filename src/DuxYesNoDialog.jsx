@@ -3,28 +3,26 @@ import PropTypes from 'prop-types';
 
 import { DuxDialog } from './DuxDialog';
 
-export class DuxYesNoDialog extends React.Component {
-    render() {
-        let buttons = [
-            {
-                label: 'Yes',
-                className: this.props.yesClassName,
-                onClick: this.props.onYes
-            },
-            {
-                label: 'No',
-                className: this.props.noClassName,
-                onClick: this.props.onNo
-            }
-        ];
+export const DuxYesNoDialog = props => {
+    let buttons = [
+        {
+            label: 'Yes',
+            className: props.yesClassName,
+            onClick: props.onYes
+        },
+        {
+            label: 'No',
+            className: props.noClassName,
+            onClick: props.onNo
+        }
+    ];
 
-        return (
-            <DuxDialog {...this.props} buttons={buttons} onClose={this.props.onNo}>
-                {this.props.children}
-            </DuxDialog>
-        );
-    }
-}
+    return (
+        <DuxDialog {...props} buttons={buttons} onClose={props.onNo}>
+            {props.children}
+        </DuxDialog>
+    );
+};
 
 DuxYesNoDialog.propTypes = {
     ...DuxDialog.propTypes,
