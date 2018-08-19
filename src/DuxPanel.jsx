@@ -97,6 +97,7 @@ export class DuxPanel extends React.Component {
             }
             if (this.props.modal) {
                 DuxPanel.panelStack.pop();
+                this.timestamp = 0;
                 newState.backdropAnimationName = 'duxpanel-fade-out';
             }
             this.setState(newState);
