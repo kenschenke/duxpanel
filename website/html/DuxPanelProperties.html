@@ -1,0 +1,162 @@
+<h2>DuxPanel Property Reference</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Default Value</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>allowClose</td>
+        <td>true</td>
+        <td>
+            If true, a close button is placed on the right side of the title bar.  Note, this property is ignored
+            if <strong>title</strong> is empty.
+        </td>
+    </tr>
+    <tr>
+        <td>allowDrag</td>
+        <td>true</td>
+        <td>If true, the user is permitted to drag the panel by the title bar.</td>
+    </tr>
+    <tr>
+        <td>animation</td>
+        <td>(none)</td>
+        <td>
+            This is a CSS animation shorthand format, such as <code>"cool-animation .25s ease"</code>.
+        </td>
+    </tr>
+    <tr>
+        <td>center</td>
+        <td>true</td>
+        <td>
+            If true, the panel is centered horizontally and vertically in the browser's viewport.  Note, the viewport
+            is the visible portion of the document body.  If the viewport is resized, the panel is moved to keep it
+            centered.
+        </td>
+    </tr>
+    <tr>
+        <td>clickToDismiss</td>
+        <td>true</td>
+        <td>
+            If true, the <strong>onClose</strong> function is called if the user clicks outside the panel.  This
+            property is ignored if <strong>modal</strong> is false.
+        </td>
+    </tr>
+    <tr>
+        <td>fadeIn</td>
+        <td>true</td>
+        <td>
+            If true, the panel's opacity is faded from 0 to 1 using a CSS animation when the <strong>show</strong>
+            property is changed from false to true.
+        </td>
+    </tr>
+    <tr>
+        <td>fadeOut</td>
+        <td>true</td>
+        <td>
+            If true, the panel's opacity is faded from 1 to 0 using a CSS animation when the <strong>show</strong>
+            property is changed from true to false.
+        </td>
+    </tr>
+    <tr>
+        <td>height</td>
+        <td>(none)</td>
+        <td>
+            The panel height.  This property can be a number (in pixels) or a percentage of the browser viewport
+            width such as "50%" or an object of viewport breakpoints.  See the topic on responsive panels for more
+            information.  If this property is missing, the panel will be sized tall enough to accommodate its
+            contents.
+        </td>
+    </tr>
+    <tr>
+        <td>left</td>
+        <td>(none)</td>
+        <td>
+            The left edge of the panel.  This property can be a number (in pixels) or a percentage of the browser
+            viewport width such as "50%" or an object of viewport breakpoints.  See the topic on responsive panels for
+            more information.  This parameter can be omitted if <strong>center</strong> is true.
+        </td>
+    </tr>
+    <tr>
+        <td>modal</td>
+        <td>true</td>
+        <td>
+            If true, a backdrop covers the entire viewport preventing the user from interacting with the
+            part of the web page visible outside the panel.
+        </td>
+    </tr>
+    <tr>
+        <td>onClose</td>
+        <td>(required)</td>
+        <td>
+            This function is called when the user clicks the close button on the title bar.
+        </td>
+    </tr>
+    <tr>
+        <td>onEnterPressed</td>
+        <td>(none)</td>
+        <td>
+            This function is called when the user presses the Enter key, but only if the panel is the most recently
+            opened.
+        </td>
+    </tr>
+    <tr>
+        <td>onEscPressed</td>
+        <td>(none)</td>
+        <td>
+            This function is called when the user presses the Escape key, but only if the panel is the most recently
+            opened.
+        </td>
+    </tr>
+    <tr>
+        <td>show</td>
+        <td>false</td>
+        <td>
+            If true, the panel is rendered in the DOM and is visible.  If false, the panel is removed from the DOM.
+        </td>
+    </tr>
+    <tr>
+        <td>slideInFrom</td>
+        <td>(none)</td>
+        <td>
+            Can be one of <code>"top"</code>, <code>"right"</code>, <code>"bottom"</code>, or <code>"left"</code>.
+        </td>
+    </tr>
+    <tr>
+        <td>slideOutTo</td>
+        <td>(none)</td>
+        <td>
+            Can be one of <code>"top"</code>, <code>"right"</code>, <code>"bottom"</code>, or <code>"left"</code>.
+        </td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>(none)</td>
+        <td>
+            The title to show in the panel's title bar.  If this property is missing or empty, no title bar is rendered.
+        </td>
+    </tr>
+    <tr>
+        <td>top</td>
+        <td>(none)</td>
+        <td>
+            The top edge of the panel.  This property can be a number (in pixels) or a percentage of the browser
+            viewport width such as "50%" or an object of viewport breakpoints.  See the topic on responsive panels for
+            more information.  This parameter can be omitted if <strong>center</strong> is true.
+        </td>
+    </tr>
+    <tr>
+        <td>width</td>
+        <td>(required)</td>
+        <td>
+            The panel width.  This property can be a number (in pixels) or a percentage of the browser viewport
+            width such as "50%" or an object of viewport breakpoints.  See the topic on responsive panels for more
+            information.
+        </td>
+    </tr>
+    </tbody>
+</table>

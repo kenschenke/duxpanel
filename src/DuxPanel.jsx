@@ -322,7 +322,6 @@ class DuxPanelUi extends React.Component {
 }
 
 DuxPanelUi.propTypes = {
-    name: PropTypes.string,
     left: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
     top: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
@@ -337,7 +336,6 @@ DuxPanelUi.propTypes = {
     clickToDismiss: PropTypes.bool,
     center: PropTypes.bool,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    footerBorder: PropTypes.bool,
     children: PropTypes.node,
     footerComponent: PropTypes.node,
     slideInFrom: PropTypes.string,
@@ -357,13 +355,13 @@ DuxPanelUi.defaultProps = {
     center: true,
     allowDrag: true,
     allowClose: true,
-    footerBorder: false,
     clickToDismiss: true,
     slideInFrom: '',
     slideOutTo: '',
     fadeIn: true,
     fadeOut: true,
-    animation: ''
+    animation: '',
+    show: false
 };
 
 export const DuxPanel = connect(mapPanelProps, mapPanelDispatch)(DuxPanelUi);

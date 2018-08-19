@@ -11,6 +11,7 @@ import topics from '../topics.json';
     DuxPanel Basics
     Responsive Panels
     Panel Animation
+    Panel Stack
     DuxPanel Property Reference
     DuxDialog
     DuxOkDialog
@@ -33,6 +34,8 @@ import { Animation } from '../components/Animation';
 import AnimationHtml from '../html/Animation.html';
 import AnimationSource from '../source/Animation.txt';
 
+import DuxPanelPropertiesHtml from '../html/DuxPanelProperties.html';
+
 const topicMap = {
     intro: {
         html: IntroHtml
@@ -54,6 +57,9 @@ const topicMap = {
         component: Animation,
         html: AnimationHtml,
         source: AnimationSource
+    },
+    properties: {
+        html: DuxPanelPropertiesHtml
     }
 };
 

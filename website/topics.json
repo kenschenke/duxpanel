@@ -24,6 +24,11 @@
       "title": "Panel Animation",
       "topic": "animation",
       "description": "Animating DuxPanel and DuxDialog"
+    },
+    {
+      "title": "DuxPanel Properties",
+      "topic": "properties",
+      "description": "DuxPanel Property Reference"
     }
   ]
 }
