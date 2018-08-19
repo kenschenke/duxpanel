@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { mapPanelProps, mapPanelDispatch } from './maps/DuxPanel.map';
-import { connect } from 'react-redux';
-import { getElementPosition } from './helpers';
+import { getElementPosition, propToPixels } from './helpers';
 
-class DuxPanelUi extends React.Component {
+export class DuxPanel extends React.Component {
     constructor(props) {
         super(props);
 
@@ -25,12 +23,12 @@ class DuxPanelUi extends React.Component {
     }
 
     addToModalStack = () => {
-        if (this.props.modal) {
+        if (this.props.modal && this.timestamp === 0) {
             // Record the timestamp to uniquely identify the panel in the view stack.
             const now = new Date();
             this.timestamp = now.getTime();
 
-            this.props.pushPanel(this.timestamp);
+            DuxPanel.panelStack.push(this.timestamp);
         }
     };
 
@@ -98,7 +96,7 @@ class DuxPanelUi extends React.Component {
                 newState.showInDOM = false;
             }
             if (this.props.modal) {
-                this.props.popPanel();
+                DuxPanel.panelStack.pop();
                 newState.backdropAnimationName = 'duxpanel-fade-out';
             }
             this.setState(newState);
@@ -174,7 +172,7 @@ class DuxPanelUi extends React.Component {
     };
 
     onKeyDown = event => {
-        if (this.props.panelStack[this.props.panelStack.length - 1] === this.timestamp) {
+        if (this.props.modal && DuxPanel.panelStack[DuxPanel.panelStack.length - 1] === this.timestamp) {
             if (this.props.onEscPressed && event.key === 'Escape') {
                 this.props.onEscPressed();
             }
@@ -255,8 +253,8 @@ class DuxPanelUi extends React.Component {
         // Find this panel's position on the stack to determine the zIndex
         // value to cover panels at lower stack positions
         let panelDepth = 0;
-        for (let i = 0; i < this.props.panelStack.length; i++) {
-            if (this.props.panelStack[i] === this.timestamp) {
+        for (let i = 0; i < DuxPanel.panelStack.length; i++) {
+            if (DuxPanel.panelStack[i] === this.timestamp) {
                 panelDepth = i + 1;
             }
         }
@@ -275,10 +273,10 @@ class DuxPanelUi extends React.Component {
             setTimeout(() => {this.setState({animationName:''})}, 500);  // clear animation name for next render
         }
 
-        if (this.props.left) panelStyle.left = this.props.propToPixels(this.props.left, window.innerWidth);
-        if (this.props.top) panelStyle.top = this.props.propToPixels(this.props.top, window.innerHeight);
-        if (this.props.width) panelStyle.width = this.props.propToPixels(this.props.width, window.innerWidth);
-        if (this.props.height) panelStyle.height = this.props.propToPixels(this.props.height, window.innerHeight);
+        if (this.props.left) panelStyle.left = propToPixels(this.props.left, window.innerWidth);
+        if (this.props.top) panelStyle.top = propToPixels(this.props.top, window.innerHeight);
+        if (this.props.width) panelStyle.width = propToPixels(this.props.width, window.innerWidth);
+        if (this.props.height) panelStyle.height = propToPixels(this.props.height, window.innerHeight);
 
         const backdropStyle = {
             zIndex: 10 + panelDepth * 2,
@@ -321,7 +319,7 @@ class DuxPanelUi extends React.Component {
     }
 }
 
-DuxPanelUi.propTypes = {
+DuxPanel.propTypes = {
     left: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
     top: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
@@ -342,15 +340,12 @@ DuxPanelUi.propTypes = {
     slideOutTo: PropTypes.string,
     fadeIn: PropTypes.bool,
     fadeOut: PropTypes.bool,
-    animation: PropTypes.string,
-
-    panelStack: PropTypes.array.isRequired,
-    popPanel: PropTypes.func.isRequired,
-    pushPanel: PropTypes.func.isRequired,
-    propToPixels: PropTypes.func.isRequired
+    animation: PropTypes.string
 };
 
-DuxPanelUi.defaultProps = {
+DuxPanel.panelStack = [];
+
+DuxPanel.defaultProps = {
     modal: true,
     center: true,
     allowDrag: true,
@@ -363,5 +358,3 @@ DuxPanelUi.defaultProps = {
     animation: '',
     show: false
 };
-
-export const DuxPanel = connect(mapPanelProps, mapPanelDispatch)(DuxPanelUi);

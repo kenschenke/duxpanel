@@ -13,12 +13,8 @@
   "author": "Ken Schenke",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.10",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "react-dom": "^16.4.2"
   },
   "devDependencies": {
     "@fortawesome/fontawesome": "^1.1.8",

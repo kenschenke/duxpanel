@@ -63,29 +63,44 @@ const topicMap = {
     }
 };
 
-export const App = () => {
-    const topicComponents = topics.topics.map(topic => {
-        return (
-            <Topic
-                key={topic.topic}
-                topic={topic.topic}
-                component={topicMap[topic.topic].component}
-                source={topicMap[topic.topic].source}
-                html={topicMap[topic.topic].html}
-            />
-        );
-    });
+export class App extends React.Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <div className="container-fluid mt-3">
-            <div className="row">
-                <div className="col-2">
-                    <TopicChooser/>
-                </div>
-                <div className="col">
-                    {topicComponents}
+        this.state = {
+            currentTopic: 'intro'
+        };
+    }
+
+    topicClicked = topic => {
+        this.setState({currentTopic: topic});
+    };
+
+    render() {
+        const topicComponents = topics.topics.map(topic => {
+            return (
+                <Topic
+                    show={topic.topic === this.state.currentTopic}
+                    key={topic.topic}
+                    topic={topic.topic}
+                    component={topicMap[topic.topic].component}
+                    source={topicMap[topic.topic].source}
+                    html={topicMap[topic.topic].html}
+                />
+            );
+        });
+
+        return (
+            <div className="container-fluid mt-3">
+                <div className="row">
+                    <div className="col-2">
+                        <TopicChooser topic={this.state.currentTopic} topicClicked={this.topicClicked}/>
+                    </div>
+                    <div className="col">
+                        {topicComponents}
+                    </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
