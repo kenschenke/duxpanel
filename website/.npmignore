@@ -2,8 +2,5 @@
 /components
 /html
 /source
-/store
-/constants.js
 /index.jsx
-/initialState.json
 /topics.json
