@@ -39,6 +39,11 @@
       "title": "DuxOkDialog",
       "topic": "okdialog",
       "description": "Ok dialog boxes"
+    },
+    {
+      "title": "DuxYesNoDialog",
+      "topic": "yesnodialog",
+      "description": "Yes / dialog boxes"
     }
   ]
 }
