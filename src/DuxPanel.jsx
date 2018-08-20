@@ -169,7 +169,9 @@ export class DuxPanel extends React.Component {
     };
 
     onBackdropClick = () => {
-        this.props.onClose();
+        if (this.props.onClose()) {
+            this.props.onClose();
+        }
     };
 
     onKeyDown = event => {
@@ -301,7 +303,7 @@ export class DuxPanel extends React.Component {
                             className="duxpanel-heading"
                         >
                             {this.props.title}
-                            {this.props.allowClose &&
+                            {this.props.allowClose && this.props.onClose &&
                             <button type="button" className="duxpanel-close-button" onClick={this.props.onClose}>&times;</button>
                             }
                         </div>
@@ -325,7 +327,7 @@ DuxPanel.propTypes = {
     top: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
-    onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
     show: PropTypes.bool,
     allowClose: PropTypes.bool,
     allowDrag: PropTypes.bool,
