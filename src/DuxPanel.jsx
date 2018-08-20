@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getElementPosition, propToPixels } from './helpers';
+import { getAnimationNameHide, getAnimationNameShow, getElementPosition, isInsideRect,
+    propToPixels } from './helpers';
 
 export class DuxPanel extends React.Component {
     constructor(props) {
@@ -15,7 +16,7 @@ export class DuxPanel extends React.Component {
         const initialState = {
             showInDOM: props.show,
             backdropAnimationName: '',
-            animationName: props.show ? this.animationNameShow() : ''
+            animationName: props.show ? getAnimationNameShow(props) : ''
         };
 
         this.pos = {offsetX: 0, offsetY: 0};
@@ -32,38 +33,6 @@ export class DuxPanel extends React.Component {
         }
     };
 
-    animationNameHide = () => {
-        let name = '';
-        if (this.props.slideOutTo) {
-            switch (this.props.slideOutTo) {
-                case 'top': name = 'duxpanel-slide-out-top'; break;
-                case 'right': name = 'duxpanel-slide-out-right'; break;
-                case 'bottom': name = 'duxpanel-slide-out-bottom'; break;
-                case 'left': name = 'duxpanel-slide-out-left'; break;
-            }
-        } else if (this.props.fadeOut) {
-            name = 'duxpanel-fade-out';
-        }
-
-        return name;
-    };
-
-    animationNameShow = () => {
-        let name = '';
-        if (this.props.slideInFrom) {
-            switch (this.props.slideInFrom) {
-                case 'top': name = 'duxpanel-slide-in-top'; break;
-                case 'right': name = 'duxpanel-slide-in-right'; break;
-                case 'bottom': name = 'duxpanel-slide-in-bottom'; break;
-                case 'left': name = 'duxpanel-slide-in-left'; break;
-            }
-        } else if (this.props.fadeIn) {
-            name = 'duxpanel-fade-in';
-        }
-
-        return name;
-    };
-
     componentDidUpdate = prevProps => {
         if (!prevProps.show && this.props.show) {
             // The panel was hidden but is now visible.
@@ -72,7 +41,7 @@ export class DuxPanel extends React.Component {
             this.addToModalStack();
             const newState = {
                 showInDOM: true,
-                animationName: this.animationNameShow()
+                animationName: getAnimationNameShow(this.props)
             };
             if (this.props.modal) {
                 newState.backdropAnimationName = 'duxpanel-fade-in';
@@ -87,7 +56,7 @@ export class DuxPanel extends React.Component {
             window.removeEventListener('mousemove', this.mouseMove, false);
             window.removeEventListener('mouseup', this.mouseUp, false);
             window.removeEventListener('mousedown', this.mouseDown, false);
-            const animationNameHide = this.animationNameHide();
+            const animationNameHide = getAnimationNameHide(this.props);
             const newState = {};
             if (animationNameHide) {
                 newState.animationName = animationNameHide;
@@ -104,10 +73,6 @@ export class DuxPanel extends React.Component {
         }
     };
 
-    isInsideRect = (x, y, left, top, width, height) => {
-        return (x >= left && y >= top && x <= left+width && y <= top+height);
-    };
-
     mouseDown = event => {
         let x, y;
 
@@ -122,7 +87,7 @@ export class DuxPanel extends React.Component {
         if (this._header) {
             const headerRect = this._header.getBoundingClientRect();
             let curPos = getElementPosition(this._panel);
-            if (this.isInsideRect(x, y, curPos.left, curPos.top, headerRect.width, headerRect.height)) {
+            if (isInsideRect(x, y, curPos.left, curPos.top, headerRect.width, headerRect.height)) {
                 this.btnDown = true;
             }
         }

@@ -1,4 +1,50 @@
 /**
+ * This helper function is called from DuxPanel.  It looks at the properties and returns
+ * the name of the CSS keyframe animation to use when the dialog hides.
+ *
+ * @param props
+ * @returns {string}
+ */
+export const getAnimationNameHide = props => {
+    let name = '';
+    if (props.slideOutTo) {
+        switch (props.slideOutTo) {
+            case 'top': name = 'duxpanel-slide-out-top'; break;
+            case 'right': name = 'duxpanel-slide-out-right'; break;
+            case 'bottom': name = 'duxpanel-slide-out-bottom'; break;
+            case 'left': name = 'duxpanel-slide-out-left'; break;
+        }
+    } else if (props.fadeOut) {
+        name = 'duxpanel-fade-out';
+    }
+
+    return name;
+};
+
+/**
+ * This helper function is called from DuxPanel.  It looks at the properties and returns
+ * the name of the CSS keyframe animation to use when the dialog shows.
+ *
+ * @param props
+ * @returns {string}
+ */
+export const getAnimationNameShow = props => {
+    let name = '';
+    if (props.slideInFrom) {
+        switch (props.slideInFrom) {
+            case 'top': name = 'duxpanel-slide-in-top'; break;
+            case 'right': name = 'duxpanel-slide-in-right'; break;
+            case 'bottom': name = 'duxpanel-slide-in-bottom'; break;
+            case 'left': name = 'duxpanel-slide-in-left'; break;
+        }
+    } else if (props.fadeIn) {
+        name = 'duxpanel-fade-in';
+    }
+
+    return name;
+};
+
+/**
  * Gets the offset position of the element.
  *
  * @param elem
@@ -33,7 +79,16 @@ export const getElementPosition = elem => {
     };
 };
 
-export const isNumberStr = value => {
+export const isInsideRect = (x, y, left, top, width, height) => {
+    return (x >= left && y >= top && x <= left+width && y <= top+height);
+};
+
+/**
+ * Returns true if the parameter is a string that contains a number.
+ * @param value
+ * @returns {boolean}
+ */
+const isNumberStr = value => {
     if (typeof value === 'string') {
         return value.indexOf('px') !== -1 || !isNaN(parseInt(value));
     }
@@ -41,7 +96,12 @@ export const isNumberStr = value => {
     return false;
 };
 
-export const isPercentStr = value => {
+/**
+ * Returns true if the parameter is a string that contains a percent.
+ * @param value
+ * @returns {boolean}
+ */
+const isPercentStr = value => {
     return typeof value === 'string' && value.indexOf('%') !== -1;
 };
 
