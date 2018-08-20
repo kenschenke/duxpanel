@@ -25,22 +25,6 @@
     This will work as long as you don't need to override any of the CSS in the file.
 </div>
 
-<h4>Redux Store</h4>
-
-<p>
-    DuxPanel stores state in the Redux store.  It requires the root <code>panels</code> object in the store.
-    A reducer is supplied to manage this.
-</p>
-
-<pre>
-    import {DuxPanelReducer} from 'duxpanel';
-
-    const appReducer = combineReducers({
-        ...  // other reducers
-        panels: DuxPanelReducer
-    });
-</pre>
-
 <h4>Browser Requirements</h4>
 
 <p>

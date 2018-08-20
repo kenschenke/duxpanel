@@ -3,21 +3,6 @@ import { TopicChooser } from './TopicChooser';
 import { Topic } from './Topic';
 import topics from '../topics.json';
 
-/*
-    Topics:
-
-    Intro
-    Getting Started
-    DuxPanel Basics
-    Responsive Panels
-    Panel Animation
-    Panel Stack
-    DuxPanel Property Reference
-    DuxDialog
-    DuxOkDialog
-    DuxYesNoDialog
- */
-
 import IntroHtml from '../html/Intro.html';
 
 import GettingStartedHtml from '../html/GettingStarted.html';
