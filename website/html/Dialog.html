@@ -3,44 +3,16 @@
 <p>
     <code>DuxDialog</code> is a specialized version of <code>DuxPanel</code> with some defaults typically used in
     dialogs as well as buttons for the user to interact with the dialog.  If all you need is a dialog with typical
-    buttons, take a look at <code>DuxOkDialog</code> or <code>DuxYesNoDialog</code>.  The following DuxPanel properties
-    are set by DuxDialog by default.  Their values can be overridden if desired.
+    buttons, take a look at <code>DuxOkDialog</code> or <code>DuxYesNoDialog</code>.
+    The following DuxPanel properties
+    are recognized by DuxDialog.
 </p>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Property</th>
-        <th>Default Value</th>
-        <th>Notes</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>allowClose</td>
-        <td>false</td>
-        <td>The close button is not shown on the title bar.</td>
-    </tr>
-    <tr>
-        <td>clickToDismiss</td>
-        <td>false</td>
-        <td>The dialog cannot be dismissed by clicking on the backdrop outside the dialog.</td>
-    </tr>
-    <tr>
-        <td>slideInFrom, slideOutTo</td>
-        <td>top</td>
-        <td>The dialog will slide in from and slide out to the top of the browser viewport.</td>
-    </tr>
-    <tr>
-        <td>top</td>
-        <td>50</td>
-        <td>The dialog open position itself 50 pixels from the top of the browser viewport.</td>
-    </tr>
-    </tbody>
-</table>
-
 <p>
-    In addition to the overridden DuxPanel properties, DuxDialog defines some additional properties.
+    By default, DuxDialog sets a few sensible properties in DuxPanel.  The close button is not shown in the title bar.
+    Also, the dialog cannot be dismissed by clicking in the backdrop outside the dialog.  The dialog will slide in
+    from the top and slide out the top and position itself centered, 50 pixels from the top.  All of these can be
+    overridden if desired.
 </p>
 
 <table class="table table-striped">
