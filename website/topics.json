@@ -44,6 +44,11 @@
       "title": "DuxYesNoDialog",
       "topic": "yesnodialog",
       "description": "Yes / dialog boxes"
+    },
+    {
+      "title": "DuxProgressDialog",
+      "topic": "progressdialog",
+      "description": "Progress Dialogs"
     }
   ]
 }

@@ -48,6 +48,10 @@ import { YesNoDialog } from './YesNoDialog';
 import YesNoDialogHtml from '../html/YesNoDialog.html';
 import YesNoDialogSource from '../source/YesNoDialog.txt';
 
+import { ProgressDialog } from './ProgressDialog';
+import ProgressDialogHtml from '../html/ProgressDialog.html';
+import ProgressDialogSource from '../source/ProgressDialog.txt';
+
 const topicMap = {
     intro: {
         html: IntroHtml
@@ -87,6 +91,11 @@ const topicMap = {
         component: YesNoDialog,
         html: YesNoDialogHtml,
         source: YesNoDialogSource
+    },
+    progressdialog: {
+        component: ProgressDialog,
+        html: ProgressDialogHtml,
+        source: ProgressDialogSource
     }
 };
 

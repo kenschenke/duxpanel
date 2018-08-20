@@ -1,0 +1,73 @@
+<h2>DuxProgressDialog</h2>
+
+<p>
+    The <code>&lt;DuxProgressDialog&gt;</code> component displays a progress dialog for potentially long operations.
+    A progress bar and abort button are optional.  Furthermore, the dialog can delay opening for operations that are
+    sometimes, but not always long such as web service calls.
+</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Default Value</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>min</td>
+        <td>0</td>
+        <td>The minimum value of the progress bar</td>
+    </tr>
+    <tr>
+        <td>max</td>
+        <td>0</td>
+        <td>The maximum value of the progress bar</td>
+    </tr>
+    <tr>
+        <td>value</td>
+        <td>0</td>
+        <td>The current value of the progress bar.  It is rendered as a percentage between min and max.</td>
+    </tr>
+    <tr>
+        <td>allowAbort</td>
+        <td>false</td>
+        <td>
+            If true, an abort button is rendered in the dialog.  The onAbort property is required if true.
+        </td>
+    </tr>
+    <tr>
+        <td>onAbort</td>
+        <td>(none)</td>
+        <td>This function is called if the user clicks the abort button.</td>
+    </tr>
+    <tr>
+        <td>showAfter</td>
+        <td>0</td>
+        <td>
+            For operations which are not always long, but can potentially take a while (such as web service calls),
+            the dialog can delay showing with this property.  A timer is started when the show property transitions
+            from false to true. Once the timer elapses, the dialog is displayed if show is still true.  This property
+            is the number of milliseconds to delay.  If this property is 0, the dialog is displayed immediately when
+            show becomes true.
+        </td>
+    </tr>
+    <tr>
+        <td>abortButtonClassName</td>
+        <td>(none)</td>
+        <td>The CSS class(es) to apply to the abort <code>&lt;button&gt;</code></td>
+    </tr>
+    <tr>
+        <td>progressComponent</td>
+        <td>(none)</td>
+        <td>
+            This is a React component to render the progress bar.  If not present, no progress bar is rendered.  For
+            web sites using Twitter Bootstrap 4, <code>&lt;ProgressBarBS4&gt;</code> is supplied.  See below for an
+            example of use.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Examples</h4>
