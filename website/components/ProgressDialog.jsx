@@ -2,6 +2,8 @@ import React from 'react';
 import { DuxProgressDialog } from '../../src/DuxProgressDialog';
 import { ProgressBarBS4 } from '../../src/ProgressBarBS4';
 
+const MyCustomProgressBar = props => <div>At {props.value} out of {props.max} progress</div>;
+
 export class ProgressDialog extends React.Component {
     constructor(props) {
         super(props);
@@ -9,12 +11,21 @@ export class ProgressDialog extends React.Component {
         this.state = {
             isFixedDialogOpen: false,
             isIndeterminateOpen: false,
-            fixedProgressValue: 0
+            isCustomProgressOpen: false,
+            fixedProgressValue: 0,
+            customProgressValue: 0
         };
 
         this.progressBarFixed = ProgressBarBS4('progress-bar');
-        this.progressBarIndeterminate = ProgressBarBS4('progress-bar progress-bar-striped progress-bar-animated')
+        this.progressBarIndeterminate = ProgressBarBS4('progress-bar progress-bar-striped progress-bar-animated');
     }
+
+    onCustomAbort = () => {
+        this.setState({
+            isCustomDialogOpen: false,
+            customProgressValue: 5
+        });
+    };
 
     onFixedAbort = () => {
         this.setState({
@@ -29,18 +40,41 @@ export class ProgressDialog extends React.Component {
         });
     };
 
-    tick = () => {
+    tickCustom = () => {
+        const nextValue = this.state.customProgressValue + 1;
+        this.setState({
+            customProgressValue: nextValue
+        });
+        if (nextValue <= 5) {
+            setTimeout(this.tickCustom, 1000);
+        } else {
+            this.setState({
+                isCustomDialogOpen: false
+            });
+        }
+    };
+
+    tickFixed = () => {
         const nextValue = this.state.fixedProgressValue + 1;
         this.setState({
             fixedProgressValue: nextValue
         });
         if (nextValue <= 5) {
-            setTimeout(this.tick, 1000);
+            setTimeout(this.tickFixed, 1000);
         } else {
             this.setState({
                 isFixedDialogOpen: false
             });
         }
+    };
+
+    toggleCustomDialog = () => {
+        this.setState({
+            isCustomDialogOpen: true,
+            customProgressValue: 0
+        });
+
+        setTimeout(this.tickCustom, 1000);
     };
 
     toggleFixedDialog = () => {
@@ -49,7 +83,7 @@ export class ProgressDialog extends React.Component {
             fixedProgressValue: 0
         });
 
-        setTimeout(this.tick, 1000);
+        setTimeout(this.tickFixed, 1000);
     };
 
     toggleIndeterminateOpen = () => {
@@ -86,6 +120,22 @@ export class ProgressDialog extends React.Component {
                 </DuxProgressDialog>
 
                 <DuxProgressDialog
+                    show={this.state.isCustomDialogOpen}
+                    title="Please Wait"
+                    min={0}
+                    max={5}
+                    value={this.state.customProgressValue}
+                    allowAbort={true}
+                    onAbort={this.onCustomAbort}
+                    progressComponent={MyCustomProgressBar}
+                    abortButtonClassName="btn btn-warning"
+                >
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                </DuxProgressDialog>
+
+                <DuxProgressDialog
                     show={this.state.isIndeterminateOpen}
                     title="Please Wait"
                     min={0}
@@ -114,6 +164,11 @@ export class ProgressDialog extends React.Component {
                     automatically after another 7 seconds if not aborted by the user.
                 </p>
                 <button type="button" className="btn btn-primary" onClick={this.toggleIndeterminateOpen}>Open Dialog</button>
+
+                <p className="mt-5">
+                    This progress bar demonstrates a custom progress bar component.
+                </p>
+                <button type="button" className="btn btn-primary" onClick={this.toggleCustomDialog}>Open Dialog</button>
             </div>
         );
     }
