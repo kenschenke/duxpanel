@@ -155,19 +155,19 @@ export class ProgressDialog extends React.Component {
                     This progress bar demonstrates a task that takes 5 seconds to complete.  The dialog opens
                     immediately.
                 </p>
-                <button type="button" className="btn btn-primary" onClick={this.toggleFixedDialog}>Open Dialog</button>
+                <button type="button" className="btn btn-secondary" onClick={this.toggleFixedDialog}>Open Dialog</button>
 
                 <p className="mt-5">
                     This progress bar demonstrates a task that takes an unknown amount of time but usually finishes
                     quickly.  This would usually be a web service call.  The dialog opens after 3 seconds then closes
                     automatically after another 7 seconds if not aborted by the user.
                 </p>
-                <button type="button" className="btn btn-primary" onClick={this.toggleIndeterminateOpen}>Open Dialog</button>
+                <button type="button" className="btn btn-secondary" onClick={this.toggleIndeterminateOpen}>Open Dialog</button>
 
                 <p className="mt-5">
                     This progress bar demonstrates a custom progress bar component.
                 </p>
-                <button type="button" className="btn btn-primary" onClick={this.toggleCustomDialog}>Open Dialog</button>
+                <button type="button" className="btn btn-secondary" onClick={this.toggleCustomDialog}>Open Dialog</button>
             </div>
         );
     }

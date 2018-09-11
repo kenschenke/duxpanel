@@ -38,7 +38,7 @@ export class YesNoDialog extends React.Component {
                     Are you sure you want to delete the record?
                 </DuxYesNoDialog>
 
-                <button type="button" className="btn btn-primary" onClick={this.toggleDialog}>Open Dialog</button>
+                <button type="button" className="btn btn-secondary" onClick={this.toggleDialog}>Open Dialog</button>
             </div>
         );
     }

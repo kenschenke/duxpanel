@@ -29,14 +29,14 @@ export class Responsive extends React.Component {
             <div>
                 <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-secondary"
                     onClick={this.toggleProportionalPanel}
                 >
                     Open Proportionally Sized Panel
                 </button>
                 <button
                     type="button"
-                    className="btn btn-primary ml-3"
+                    className="btn btn-secondary ml-3"
                     onClick={this.toggleBreakpointPanel}
                 >
                     Open Breakpoint Sized Panel

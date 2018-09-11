@@ -54,7 +54,7 @@ export class OkDialog extends React.Component {
                     }
                 </DuxOkDialog>
 
-                <button type="button" className="btn btn-primary" onClick={this.toggleDialog}>Open Dialog</button>
+                <button type="button" className="btn btn-secondary" onClick={this.toggleDialog}>Open Dialog</button>
             </div>
         );
     }

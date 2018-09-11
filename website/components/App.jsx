@@ -1,7 +1,6 @@
 import React from 'react';
-import { TopicChooser } from './TopicChooser';
 import { Topic } from './Topic';
-import topics from '../topics.json';
+import { NavBar } from './NavBar';
 
 import IntroHtml from '../html/Intro.html';
 
@@ -37,52 +36,62 @@ import { ProgressDialog } from './ProgressDialog';
 import ProgressDialogHtml from '../html/ProgressDialog.html';
 import ProgressDialogSource from '../source/ProgressDialog.txt';
 
-const topicMap = {
-    intro: {
+const topics = [
+    {
+        topic: 'intro',
         html: IntroHtml
     },
-    gettingstarted: {
+    {
+        topic: 'gettingstarted',
         html: GettingStartedHtml
     },
-    basics: {
+    {
+        topic: 'basics',
         component: Basics,
         html: BasicsHtml,
         source: BasicsSource
     },
-    responsive: {
+    {
+        topic: 'responsive',
         component: Responsive,
         html: ResponsiveHtml,
         source: ResponsiveSource
     },
-    animation: {
+    {
+        topic: 'animation',
         component: Animation,
         html: AnimationHtml,
         source: AnimationSource
     },
-    properties: {
+    {
+        topic: 'reference',
         html: DuxPanelPropertiesHtml
     },
-    dialog: {
+    {
+        topic: 'dialog',
         component: Dialog,
         html: DialogHtml,
         source: DialogSource
     },
-    okdialog: {
+    {
+        topic: 'okdialog',
         component: OkDialog,
         html: OkDialogHtml,
         source: OkDialogSource
     },
-    yesnodialog: {
+    {
+        topic: 'yesnodialog',
         component: YesNoDialog,
         html: YesNoDialogHtml,
         source: YesNoDialogSource
     },
-    progressdialog: {
+    {
+        topic: 'progressdialog',
         component: ProgressDialog,
         html: ProgressDialogHtml,
         source: ProgressDialogSource
     }
-};
+];
 
 export class App extends React.Component {
     constructor(props) {
@@ -98,29 +107,23 @@ export class App extends React.Component {
     };
 
     render() {
-        const topicComponents = topics.topics.map(topic => {
+        const topicComponents = topics.map(topic => {
             return (
                 <Topic
                     show={topic.topic === this.state.currentTopic}
                     key={topic.topic}
                     topic={topic.topic}
-                    component={topicMap[topic.topic].component}
-                    source={topicMap[topic.topic].source}
-                    html={topicMap[topic.topic].html}
+                    component={topic.component}
+                    source={topic.source}
+                    html={topic.html}
                 />
             );
         });
 
         return (
-            <div className="container-fluid mt-3">
-                <div className="row">
-                    <div className="col-2">
-                        <TopicChooser topic={this.state.currentTopic} topicClicked={this.topicClicked}/>
-                    </div>
-                    <div className="col">
-                        {topicComponents}
-                    </div>
-                </div>
+            <div className="container">
+                <NavBar topicClicked={this.topicClicked}/>
+                 {topicComponents}
             </div>
         );
     }
