@@ -25,7 +25,9 @@ module.exports = {
         }),
         new OptimizeCSSAssetsPlugin({}),
         new CopyWebpackPlugin([
-            {from: './website/build/index.html', flatten:true}
+            {from: './website/build/index.html', flatten:true},
+            {from: './website/build/styles.css', flatten:true},
+            {from: './website/build/duxpanel.png', flatten:true}
         ])
     ],
     module: {
