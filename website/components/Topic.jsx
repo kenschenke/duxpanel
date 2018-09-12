@@ -29,9 +29,9 @@ export const Topic = props => {
                 </div>
             </div>
             }
-            <div className="row mt-3" style={{borderTop:'1px solid #ccc',textAlign:'center',height:'3em'}}>
+            <div id="footer" className="row mt-3">
                 <div className="col">
-                    <small className="text-muted">Copyright 2018 by Ken Schenke</small>
+                    <small>Copyright 2018 by Ken Schenke</small>
                 </div>
             </div>
         </div>
