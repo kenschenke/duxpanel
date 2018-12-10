@@ -11,8 +11,11 @@ export const DuxDialog = props => {
             buttons={props.buttons}
             onButton={props.onButton}
             buttonClassName={props.buttonClassName}
+            statusMsg={props.statusMsg}
+            statusMsgClassName={props.statusMsgClassName}
         />;
     }
+
     return (
         <DuxPanel footerComponent={footer} {...props}>
             {props.icon &&
@@ -30,7 +33,9 @@ DuxDialog.propTypes = {
     ),
     onButton: PropTypes.func,
     icon: PropTypes.node,
-    buttonClassName: PropTypes.string
+    buttonClassName: PropTypes.string,
+    statusMsg: PropTypes.string,
+    statusMsgClassName: PropTypes.string
 };
 
 DuxDialog.defaultProps = {
@@ -41,5 +46,7 @@ DuxDialog.defaultProps = {
     buttonClassName: '',
     top: 50,
     slideInFrom: 'top',
-    slideOutTo: 'top'
+    slideOutTo: 'top',
+    statusMsg: '',
+    statusMsgClassName: ''
 };

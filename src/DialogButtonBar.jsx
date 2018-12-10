@@ -56,6 +56,9 @@ export class DialogButtonBar extends React.Component {
             <div className="duxdialogbuttonbar clearfix">
                 <div style={{width:'100%'}}>
                     <div style={{float:'left'}}>
+                        <span className={this.props.statusMsgClassName}>
+                            {this.props.statusMsg}
+                        </span>
                         {leftButtons}
                     </div>
                     <div style={{float:'right'}}>
@@ -71,9 +74,13 @@ DialogButtonBar.propTypes = {
     buttons: PropTypes.arrayOf(
         PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.node])).isRequired,
     onButton: PropTypes.func,
-    buttonClassName: PropTypes.string.isRequired
+    buttonClassName: PropTypes.string.isRequired,
+    statusMsg: PropTypes.string,
+    statusMsgClassName: PropTypes.string
 };
 
 DialogButtonBar.defaultProps = {
-    buttonClassName: ''
+    buttonClassName: '',
+    statusMsg: '',
+    statusMsgClassName: ''
 };

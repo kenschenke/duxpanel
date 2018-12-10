@@ -24,7 +24,8 @@ export class DuxOkDialog extends React.Component {
             {
                 label: 'Ok',
                 onClick: this.onOk,
-                className: this.props.okClassName
+                className: this.props.okClassName,
+                disabled: this.props.okDisabled
             }
         ];
 
@@ -60,7 +61,8 @@ DuxOkDialog.propTypes = {
     buttons: PropTypes.array,
     shouldClose: PropTypes.func,
     cancelClassName: PropTypes.string,
-    okClassName: PropTypes.string
+    okClassName: PropTypes.string,
+    okDisabled: PropTypes.bool
 };
 
 DuxOkDialog.defaultProps = {
@@ -70,5 +72,6 @@ DuxOkDialog.defaultProps = {
     allowEsc: true,
     allowEnter: true,
     cancelClassName: '',
-    okClassName: ''
+    okClassName: '',
+    okDisabled: false
 };
