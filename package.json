@@ -27,6 +27,9 @@
   },
   "author": "Ken Schenke",
   "license": "MIT",
+  "dependencies": {
+    "lodash.throttle": "^4.x"
+  },
   "peerDependencies": {
     "react": "^16.x",
     "react-dom": "^16.x"

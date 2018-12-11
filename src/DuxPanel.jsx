@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getAnimationNameHide, getAnimationNameShow, getElementPosition, isInsideRect,
     propToPixels } from './helpers';
+import throttle from 'lodash.throttle';
 
 export class DuxPanel extends React.Component {
     constructor(props) {
@@ -21,6 +22,9 @@ export class DuxPanel extends React.Component {
 
         this.pos = {offsetX: 0, offsetY: 0};
         this.state = initialState;
+
+        this.throttleMouseMove = throttle(this.mouseMove, 20);
+        this.throttleResize = throttle(this.windowResized, 50);
     }
 
     addToModalStack = () => {
@@ -52,8 +56,8 @@ export class DuxPanel extends React.Component {
             // The panel was visible but is now hidden.  Unsubscribe from the
             // document's keydown event.
             document.removeEventListener('keydown', this.onKeyDown, false);
-            window.removeEventListener('resize', this.windowResized, false);
-            window.removeEventListener('mousemove', this.mouseMove, false);
+            window.removeEventListener('resize', this.throttleResize, false);
+            window.removeEventListener('mousemove', this.throttleMouseMove, false);
             window.removeEventListener('mouseup', this.mouseUp, false);
             window.removeEventListener('mousedown', this.mouseDown, false);
             const animationNameHide = getAnimationNameHide(this.props);
@@ -170,8 +174,8 @@ export class DuxPanel extends React.Component {
 
     subscribeToEvents = () => {
         document.addEventListener('keydown', this.onKeyDown, false);
-        window.addEventListener('resize', this.windowResized, false);
-        window.addEventListener('mousemove', this.mouseMove, false);
+        window.addEventListener('resize', this.throttleResize, false);
+        window.addEventListener('mousemove', this.throttleMouseMove, false);
         window.addEventListener('mousedown', this.mouseDown, false);
         window.addEventListener('mouseup', this.mouseUp, false);
     };
