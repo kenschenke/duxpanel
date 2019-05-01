@@ -1,0 +1,82 @@
+@keyframes panel-frame-one {
+    0% {
+        left: 50px;
+        top: 150px;
+        width: 250px;
+        height: 325px;
+    }
+    100% {
+        left: 550px;
+        top: 350px;
+        width: 400px;
+        height: 200px;
+    }
+}
+
+@keyframes panel-frame-two {
+    0% {
+        left: 550px;
+        top: 350px;
+        width: 400px;
+        height: 200px;
+    }
+    100% {
+        left: 50px;
+        top: 150px;
+        width: 250px;
+        height: 325px;
+    }
+}
+
+body {
+    background-color: #555;
+    color: #e7e7e7;
+}
+
+#duxpanel-logo {
+    float: left;
+    width: 150px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+#main-header {
+    border-bottom: 3px solid #f2c802;
+    width: 100%;
+}
+
+#main-header-caption {
+    color: #f2c802;
+    font-size: 1.25em;
+    font-style: italic;
+}
+
+#footer {
+    border-top: 1px solid #f2c802;
+    text-align: center;
+    height: 3em;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #e7e7e7;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #bfbfbf;
+}
+
+a, code {
+    color: #df8c00;
+}
+
+a:hover {
+    color: #ffa400;
+}
+
+pre {
+    color: #a7a7a7;
+}
+
+.duxpanel-body {
+    color: #000;
+}
