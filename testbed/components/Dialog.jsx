@@ -1,5 +1,5 @@
 import React from 'react';
-import {DuxDialog} from '../../src/DuxDialog';
+import DuxDialog from '../../src/DuxDialog';
 import faInfoCircle from '@fortawesome/fontawesome-free-solid/faInfoCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

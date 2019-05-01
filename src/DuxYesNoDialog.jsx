@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { DuxDialog } from './DuxDialog';
+import DuxDialog from './DuxDialog';
 
-export const DuxYesNoDialog = props => {
+const DuxYesNoDialog = props => {
     let buttons = [
         {
             label: 'Yes',
@@ -36,3 +36,5 @@ DuxYesNoDialog.defaultProps = {
     yesClassName: '',
     noClassName: ''
 };
+
+export default DuxYesNoDialog;

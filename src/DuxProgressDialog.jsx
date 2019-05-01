@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DuxDialog } from './DuxDialog';
+import DuxDialog from './DuxDialog';
 
-export class DuxProgressDialog extends React.Component {
+class DuxProgressDialog extends React.Component {
     constructor(props) {
         super(props);
 
@@ -81,3 +81,5 @@ DuxProgressDialog.defaultProps = {
     showAfter: 0,
     abortButtonClassName: ''
 };
+
+export default DuxProgressDialog;

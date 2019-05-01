@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { DuxDialog } from './DuxDialog';
+import DuxDialog from './DuxDialog';
 
-export class DuxOkDialog extends React.Component {
+class DuxOkDialog extends React.Component {
     onCancel = () => {
         if (this.props.onCancel) {
             this.props.onCancel();
@@ -75,3 +75,5 @@ DuxOkDialog.defaultProps = {
     okClassName: '',
     okDisabled: false
 };
+
+export default DuxOkDialog;

@@ -4,7 +4,7 @@ import { getAnimationNameHide, getAnimationNameShow, getElementPosition, isInsid
     propToPixels } from './helpers';
 import throttle from 'lodash.throttle';
 
-export class DuxPanel extends React.Component {
+class DuxPanel extends React.Component {
     constructor(props) {
         super(props);
 
@@ -330,3 +330,5 @@ DuxPanel.defaultProps = {
     animation: '',
     show: false
 };
+
+export default DuxPanel;

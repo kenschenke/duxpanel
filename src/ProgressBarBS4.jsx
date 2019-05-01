@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const ProgressBarBS4 = className => props => {
+const ProgressBarBS4 = className => props => {
     return (
         <div className="progress">
             <div className={className} style={{width:`${Math.round(((props.value-props.min)/(props.max-props.min))*100.)}%`}} aria-valuenow={props.value} aria-valuemin={props.min} aria-valuemax={props.max}></div>
@@ -14,3 +14,5 @@ ProgressBarBS4.propTypes = {
     max: PropTypes.number,
     value: PropTypes.number,
 };
+
+export default ProgressBarBS4;

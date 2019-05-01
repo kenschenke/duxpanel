@@ -1,5 +1,5 @@
 import React from 'react';
-import { DuxOkDialog } from '../../src/DuxOkDialog';
+import DuxOkDialog from '../../src/DuxOkDialog';
 
 export class OkDialog extends React.Component {
     constructor(props) {

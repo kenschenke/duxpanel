@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { DuxPanel } from './DuxPanel';
+import DuxPanel from './DuxPanel';
 import { DialogButtonBar } from './DialogButtonBar';
 
-export const DuxDialog = props => {
+const DuxDialog = props => {
     let footer = null;
     if (props.buttons) {
         footer = <DialogButtonBar
@@ -50,3 +50,5 @@ DuxDialog.defaultProps = {
     statusMsg: '',
     statusMsgClassName: ''
 };
+
+export default DuxDialog;

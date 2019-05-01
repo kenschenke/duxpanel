@@ -1,6 +1,6 @@
 import React from 'react';
-import { DuxProgressDialog } from '../../src/DuxProgressDialog';
-import { ProgressBarBS4 } from '../../src/ProgressBarBS4';
+import DuxProgressDialog from '../../src/DuxProgressDialog';
+import ProgressBarBS4 from '../../src/ProgressBarBS4';
 
 const MyCustomProgressBar = props => <div>At {props.value} out of {props.max} progress</div>;
 

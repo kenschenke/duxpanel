@@ -1,5 +1,5 @@
 import React from 'react';
-import { DuxYesNoDialog } from '../../src/DuxYesNoDialog';
+import DuxYesNoDialog from '../../src/DuxYesNoDialog';
 
 export class YesNoDialog extends React.Component {
     constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DuxPanel } from '../../src/DuxPanel';
+import DuxPanel from '../../src/DuxPanel';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { agate } from 'react-syntax-highlighter/styles/hljs';
 

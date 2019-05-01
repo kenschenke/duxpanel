@@ -1,5 +1,5 @@
 import React from 'react';
-import { DuxPanel } from '../../src/DuxPanel';
+import DuxPanel from '../../src/DuxPanel';
 
 export class Panel extends React.Component {
     constructor(props) {
